@@ -10,7 +10,7 @@ def main():
     request.add_header('Content-Type', 'text/xml')
 
     try:
-        response = urllib2.urlopen(request, ET.tostring(POST_xml))
+        response = urllib2.urlopen(request)
     except urllib2.URLError, e:
         print(e)
 
