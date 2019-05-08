@@ -16,7 +16,7 @@ def main():
     # Print entire XML
     device_xml = ET.fromstring(response.read())
     print ET.tostring(device_xml)
-    # Print specitic attribute
+    # Print specific attribute
     #device_xml = ET.fromstring(response.read())
     #print device_xml.find('general/name').text
     # Print multiple attribute values
