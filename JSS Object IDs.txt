@@ -1,0 +1,11 @@
+Computer IDs
+26-50
+
+Mobile Device IDs
+26-50
+
+User IDs
+89-113
+
+Category IDs
+1-5

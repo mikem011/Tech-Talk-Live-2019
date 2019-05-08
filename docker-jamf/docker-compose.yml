@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  mysql:
+    image: 'mysql:5.7'
+    container_name: jss_mysql
+    volumes:
+      - '<path to folder>/docker-jamf/mysql_volume:/var/lib/mysql'
+    restart: 'always'
+    ports:
+      - '3306:3306'
+    env_file:
+      - ./mysql.env
+  jss:
+      depends_on:
+        - mysql
+      image: 'jamfdevops/jamfpro:0.0.7'
+      container_name: jss
+      volumes:
+        - type: bind
+          source: <path to folder>/docker-jamf/ROOT/ROOT.war
+          target: /data/ROOT.war
+          consistency: cached
+        - type: bind
+          source: <path to folder>/docker-jamf/webapps
+          target: /usr/local/tomcat/webapps
+          consistency: cached
+      ports:
+        - '8080:8080'
+      env_file:
+        - ./jss.env
