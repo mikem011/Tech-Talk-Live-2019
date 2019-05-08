@@ -29,7 +29,8 @@ def main():
     #ET.SubElement(general_elem, 'asset_tag').text = '00001')
 
     try:
-        response = urllib2.urlopen(request, ET.tostring(POST_xml))
+        response = urllib2.urlopen(request, POST_xml)
+        #response = urllib2.urlopen(request, ET.tostring(POST_xml))
     except urllib2.URLError, e:
         print(e)
 
